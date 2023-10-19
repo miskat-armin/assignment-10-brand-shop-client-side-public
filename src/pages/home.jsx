@@ -20,8 +20,8 @@ const Home = () => {
       <Banner handleBannerBtnClick={handleBannerBtnClick}/>
       <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
         {brands.length > 0 &&
-          brands.map((brand) => {
-            return <BrandCard brand = {brand}/>;
+          brands.map((brand, idx) => {
+            return <BrandCard key={idx} brand = {brand}/>;
           })}
       </div>
     </div>

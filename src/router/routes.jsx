@@ -22,7 +22,7 @@ const CustomRouter = createBrowserRouter([
         element: <MyCart />
       },
       {
-        path: "/:product",
+        path: "/:brand/:product",
         element: <ProductDetails/>
       },
       {

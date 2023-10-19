@@ -20,7 +20,7 @@ const BrandCard = ({ brand }) => {
       <div className="card-body">
         <h2 className="card-title">{brand.brand_name}</h2>
         <div className="card-actions justify-start">
-          <button onClick={handleCardClick} className="btn btn-primary">More details</button>
+          <button onClick={handleCardClick} className="btn btn-primary">See products</button>
         </div>
       </div>
     </div>

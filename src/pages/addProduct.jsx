@@ -37,10 +37,14 @@ const AddProduct = () => {
         body: JSON.stringify(product),
       }).then((res) => {
         console.log(res);
-        toast.success("Product added successfully")
+        toast.success("Product added successfully");
       });
     }
+    
   }, [product.image]);
+
+
+
 
   useEffect(() => {
     fetch(import.meta.env.VITE_EXPRESS_API + "/brands")
@@ -125,12 +129,6 @@ const AddProduct = () => {
           <option value={"Camera"}>Camera</option>
         </Select>
 
-        <FileInput
-          bordered
-          required
-          onChange={(e) => setImg(e.target.files[0])}
-        />
-
         <Input
           placeholder="Price"
           type="number"
@@ -146,6 +144,23 @@ const AddProduct = () => {
           onChange={(e) =>
             setProduct({ ...product, description: e.target.value })
           }
+        />
+
+        {
+          img &&
+          <img 
+          src={URL.createObjectURL(img)}
+          alt="img"
+          height={300}
+          width={200}
+          />
+        }
+
+        <FileInput
+          bordered
+          required
+          placeholder="Choose an image"
+          onChange={(e) => setImg(e.target.files[0])}
         />
 
         <Rating
