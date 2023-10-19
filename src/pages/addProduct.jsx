@@ -29,22 +29,21 @@ const AddProduct = () => {
       product.image !== null &&
       product.image !== undefined
     ) {
-      console.log(product);
 
       fetch(import.meta.env.VITE_EXPRESS_API + "/products/add_product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(product),
-      }).then((res) => {
-        console.log(res);
-        toast.success("Product added successfully");
+      })
+      .then(data => data.json())
+      .then((res) => {
+        console.log(res)
+
+        if (res.error) toast.error(res.message);
+        else toast.success("Product added successfully");
       });
     }
-    
   }, [product.image]);
-
-
-
 
   useEffect(() => {
     fetch(import.meta.env.VITE_EXPRESS_API + "/brands")
@@ -146,15 +145,14 @@ const AddProduct = () => {
           }
         />
 
-        {
-          img &&
-          <img 
-          src={URL.createObjectURL(img)}
-          alt="img"
-          height={300}
-          width={200}
+        {img && (
+          <img
+            src={URL.createObjectURL(img)}
+            alt="img"
+            height={300}
+            width={200}
           />
-        }
+        )}
 
         <FileInput
           bordered

@@ -6,6 +6,8 @@ import MyCart from "../pages/myCart.jsx";
 import ProductDetails from "../pages/productDetails.jsx";
 import Products from "../pages/products.jsx";
 import AddProduct from "../pages/addProduct.jsx";
+import Signin from "../pages/signin.jsx";
+import Registration from "../pages/registration.jsx";
 
 const CustomRouter = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ const CustomRouter = createBrowserRouter([
       {
         path: "/add-product",
         element: <AddProduct />
+      },
+      {
+        path:"/signin",
+        element: <Signin />
+      },
+      {
+        path:"/registration",
+        element: <Registration />
       }
     ],
   },
