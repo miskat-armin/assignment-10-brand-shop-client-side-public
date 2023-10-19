@@ -47,7 +47,7 @@ export default function Nav() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">QuantumQuotient</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex">
@@ -70,7 +70,7 @@ export default function Nav() {
             <input
               type={`checkbox`}
               checked={theme === 'light' ? false : true}
-              onClick={handleToggle}
+              onChange={handleToggle}
             />
 
             {/* sun icon */}
