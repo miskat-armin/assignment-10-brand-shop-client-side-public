@@ -1,0 +1,26 @@
+[
+  {
+    "customer_name": "John Smith",
+    "review": "I've been using this website for a while now, and it's been a game-changer for me as a tech enthusiast. I've landed amazing brand deals with top tech companies. The platform is user-friendly, and the support team is very responsive.",
+    "date": "2023-10-18",
+    "image": "/images/customer/1.jpg"
+  },
+  {
+    "customer_name": "Emily Johnson",
+    "review": "This website is a tech influencer's dream come true. I've been able to connect with multiple tech brands and secure fantastic deals. The dashboard is intuitive, and I love the variety of brands available.",
+    "date": "2023-10-17",
+    "image": "/images/customer/2.jpg"
+  },
+  {
+    "customer_name": "David Lee",
+    "review": "As a content creator, I rely on this website to find opportunities with tech companies. It has saved me a lot of time and effort. The negotiation process is straightforward, and I've had successful partnerships with several tech brands.",
+    "date": "2023-10-16",
+    "image": "/images/customer/3.jpg"
+  },
+  {
+    "customer_name": "Sophia Martinez",
+    "review": "I can't recommend this website enough. It's a one-stop shop for tech enthusiasts looking for brand deals. The communication with brands is seamless, and the website's features make it easy to manage collaborations.",
+    "date": "2023-10-15",
+    "image": "/images/customer/4.jpg"
+  }
+]
