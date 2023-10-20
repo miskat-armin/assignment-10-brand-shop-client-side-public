@@ -1,8 +1,8 @@
-# Tech Deals Website
+# Tech Harbor Website
 
 ## [Live link](https://assignment-10-brand-shop-ca62a.web.app/)
 
-Welcome to our Tech Deals Website! This platform offers an amazing shopping experience for tech enthusiasts. Here are the key features that make this website stand out:
+Welcome to our Tech Harbor Website! This platform offers an amazing shopping experience for tech enthusiasts. Here are the key features that make this website stand out:
 
 ## Features
 
@@ -16,7 +16,7 @@ We use MongoDB, a powerful NoSQL database, to store product information, and tra
 
 ### 3. Express API
 
-The website utilizes an Express.js API to handle various operations, including product searches, user interactions, and real-time updates. This ensures that you get a smooth and responsive experience while browsing our tech deals.
+The website utilizes an Express.js API to handle various operations, including product searches, user interactions, and real-time updates. This ensures that you get a smooth and responsive experience while browsing our tech harbor.
 
 ### 4. Theme Toggle
 
@@ -28,16 +28,16 @@ We understand the importance of data privacy and security. With private routing,
 
 ## Getting Started
 
-To get started with our Tech Deals Website, follow these steps:
+To get started with our Tech Harbor Website, follow these steps:
 
 1. Clone this repository to your local machine.
 2. Install the necessary dependencies using `npm install`.
 3. Configure Firebase authentication and set up a MongoDB instance.
 4. Start the application with `npm start`.
-5. Explore tech deals, create an account, and enjoy the benefits of our website.
+5. Explore tech harbor, create an account, and enjoy the benefits of our website.
 
 ## Feedback and Contributions
 
 We value your feedback and contributions to make this website even better. If you have any suggestions or would like to contribute, please open an issue or create a pull request.
 
-Thank you for choosing our Tech Deals Website. Happy shopping!
+Thank you for choosing our Tech Harbor Website. Happy shopping!
