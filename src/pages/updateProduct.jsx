@@ -10,6 +10,7 @@ import {
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
+
 const UpdateProduct = () => {
   const [product, setProduct] = useState({
     name: "",
@@ -32,11 +33,8 @@ const UpdateProduct = () => {
     fetch(import.meta.env.VITE_EXPRESS_API + "/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data));
-
-    fetch(import.meta.env.VITE_EXPRESS_API + "/brands")
-      .then((res) => res.json())
-      .then((data) => setBrands(data));
   }, []);
+
 
   useEffect(() => {
     const controller = new AbortController();
@@ -44,7 +42,7 @@ const UpdateProduct = () => {
 
     fetch(
       import.meta.env.VITE_EXPRESS_API +
-        `/products/${params.brand}/${params.product}`,
+        `/products/brand/product/${params.product}`,
       {
         method: "GET",
         signal: signal,
@@ -77,7 +75,7 @@ const UpdateProduct = () => {
 
       fetch(
         import.meta.env.VITE_EXPRESS_API +
-          `/products/update/${product.brand_name}/${product.name}`,
+          `/products/update/${product._id}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

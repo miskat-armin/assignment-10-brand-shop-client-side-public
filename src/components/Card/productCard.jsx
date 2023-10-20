@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   };
 
   const handleUpdateClick = () => {
-    navigate(`/update/${product.brand_name}/${product.name}`)
+    navigate(`/update/${product.brand_name}/${product._id}`)
   }
 
   return (
