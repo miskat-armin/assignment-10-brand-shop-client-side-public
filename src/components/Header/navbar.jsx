@@ -28,7 +28,6 @@ export default function Nav() {
     }
   };
 
-  console.log(user)
 
 
   // set theme state in localstorage on mount & also update localstorage on state change
@@ -61,7 +60,7 @@ export default function Nav() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">TechHarbor</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex">

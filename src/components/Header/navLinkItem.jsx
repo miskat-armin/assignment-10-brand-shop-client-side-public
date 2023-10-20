@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
 
 const NavLinkItem = ({ to, label }) => {
@@ -17,6 +17,11 @@ const NavLinkItem = ({ to, label }) => {
       <p className="text-lg">{label}</p>
     </NavLink>
   );
+};
+
+NavLinkItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 export default NavLinkItem;

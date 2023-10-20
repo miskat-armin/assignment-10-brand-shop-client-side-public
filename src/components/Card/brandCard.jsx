@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 
 const BrandCard = ({ brand }) => {
 
@@ -23,6 +25,13 @@ const BrandCard = ({ brand }) => {
       </div>
     </div>
   );
+};
+
+BrandCard.propTypes = {
+  brand: PropTypes.shape({
+    brand_name: PropTypes.string.isRequired,
+    brand_image: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default BrandCard;

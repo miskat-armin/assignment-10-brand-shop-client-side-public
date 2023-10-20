@@ -9,7 +9,7 @@ import AddProduct from "../pages/addProduct.jsx";
 import Signin from "../pages/signin.jsx";
 import Registration from "../pages/registration.jsx";
 import UpdateProduct from "../pages/updateProduct.jsx";
-import PrivateRoute from "../privateRotue/private.jsx";
+import PrivateRoute from "../privateRoute/private.jsx";
 
 const CustomRouter = createBrowserRouter([
   {

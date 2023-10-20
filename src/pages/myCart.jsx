@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CartCard from "../components/Card/cartCard";
 import { useAuth } from "../context/authContext";
 
@@ -12,13 +12,17 @@ const MyCart = () => {
     setLoading(false);
   }, 50000);
 
-  useEffect(() => {
+  const getCartData = () => {
     fetch(import.meta.env.VITE_EXPRESS_API + `/carts/${user?.uid}`)
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    getCartData();
   }, [user?.uid]);
 
   if (loading)
@@ -33,7 +37,7 @@ const MyCart = () => {
       {items.length > 0 ? (
         <div className="flex flex-row flex-wrap justify-center gap-4">
           {items.map((item, index) => {
-            return <CartCard key={index} cartItem={item} />;
+            return <CartCard key={index} getCartData={getCartData} cartItem={item} />;
           })}
         </div>
       ) : (

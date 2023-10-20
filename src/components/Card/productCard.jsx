@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import { Button, Rating } from "react-daisyui";
 import { useNavigate } from "react-router-dom";
 
@@ -57,6 +57,18 @@ const ProductCard = ({ product }) => {
       </div>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    brand_name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
+  }).isRequired,
 };
 
 export default ProductCard;

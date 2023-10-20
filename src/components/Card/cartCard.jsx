@@ -1,17 +1,21 @@
-import React from "react";
 import { Button, Rating } from "react-daisyui";
 import { toast } from "react-toastify";
+import PropTypes from 'prop-types';
 
-const CartCard = ({cartItem}) => {
+const CartCard = ({cartItem, getCartData}) => {
 
-
+  console.log(cartItem)
   const handleDelete = () => {
     fetch(import.meta.env.VITE_EXPRESS_API + `/carts/delete/${cartItem._id}`,{
       method:"Delete"
     })
     .then(res => res.json())
     .then(data => {
-      toast.success("Deleted successfully")
+      if (data.error) toast.error("Failed to delete");
+        else {
+          getCartData()
+          toast.success("Deleted successfully");
+        }
     })
     .catch(e => console.log(e))
   }
@@ -45,7 +49,20 @@ const CartCard = ({cartItem}) => {
       </div>
     </div>
   </div>
-  );p
+  );
+};
+
+CartCard.propTypes = {
+  cartItem: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    brand_name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
+  }).isRequired,
+  getCartData: PropTypes.func.isRequired,
 };
 
 export default CartCard;

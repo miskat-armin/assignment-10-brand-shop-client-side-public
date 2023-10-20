@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Rating } from "react-daisyui";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -108,7 +108,7 @@ const ProductDetails = () => {
           <p className="text-lg">{product.brand_name}</p>
         </div>
         <div className="border-2 w-72 md:w-96" />
-        <div className="flex my-4 min-h-10 w-72 md:w-96 justify-between">
+        <div className="flex gap-4 my-4 min-h-10 w-72 md:w-96 justify-between">
           <p className="text-xl font-semibold text-red-500 font-sans">
             Description
           </p>

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Banner = ({ handleBannerBtnClick }) => {
   const handleClick = () => {
     handleBannerBtnClick();
@@ -7,7 +9,7 @@ const Banner = ({ handleBannerBtnClick }) => {
       className="hero min-h-screen"
       style={{
         backgroundImage:
-          "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+          "url(/banner.jpg)",
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
@@ -27,6 +29,11 @@ const Banner = ({ handleBannerBtnClick }) => {
       </div>
     </div>
   );
+};
+
+
+Banner.propTypes = {
+  handleBannerBtnClick: PropTypes.func.isRequired,
 };
 
 export default Banner;

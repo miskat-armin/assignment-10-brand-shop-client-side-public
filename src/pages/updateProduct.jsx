@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   FileInput,
@@ -208,6 +208,8 @@ const UpdateProduct = () => {
           <option value={"Cpu"}>Cpu</option>
           <option value={"Speaker"}>Speaker</option>
           <option value={"Camera"}>Camera</option>
+          <option value={"AirPods"}>AirPods</option>
+          <option value={"Others"}>Others</option>
         </Select>
 
         <label htmlFor="product-price">Price</label>
@@ -258,7 +260,6 @@ const UpdateProduct = () => {
           <FileInput
             id="product-image"
             bordered
-            required
             placeholder="Choose an image"
             className="w-72 md:w-full"
             onChange={(e) => setImg(e.target.files[0])}
@@ -278,7 +279,7 @@ const UpdateProduct = () => {
         />
 
         <Button type="submit" color="success" className="self-center w-32">
-          Upload
+          Update
         </Button>
       </form>
     </div>

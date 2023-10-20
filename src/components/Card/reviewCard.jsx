@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import { Avatar } from "react-daisyui";
 
 const ReviewCard = ({ review }) => {
@@ -20,6 +20,15 @@ const ReviewCard = ({ review }) => {
       </div>
     </div>
   );
+};
+
+ReviewCard.propTypes = {
+  review: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    customer_name: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    review: PropTypes.string.isRequired
+  }).isRequired,
 };
 
 export default ReviewCard;

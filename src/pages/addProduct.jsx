@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Button,
   FileInput,
@@ -20,14 +20,36 @@ const AddProduct = () => {
     rating: 0,
   });
 
+  const inputFile = useRef(null);
   const [brands, setBrands] = useState([]);
   const [img, setImg] = useState(null);
+  const [disabled, setDisable] = useState(false);
+  const [update, setUpdate] = useState(false);
+
+  const ResetProduct = () => {
+    if (inputFile.current) { 
+      inputFile.current.value = ""; 
+      inputFile.current.type = "text"; 
+      inputFile.current.type = "file"; 
+  } 
+    setImg(null)
+    setProduct({
+      name: "",
+      image: "",
+      brand_name: "default",
+      type: "default",
+      price: "",
+      description: "",
+      rating: 0,
+    });
+  };
 
   useEffect(() => {
     if (
       product.image !== "" &&
       product.image !== null &&
-      product.image !== undefined
+      product.image !== undefined &&
+      update
     ) {
       fetch(import.meta.env.VITE_EXPRESS_API + "/products/add_product", {
         method: "POST",
@@ -39,10 +61,14 @@ const AddProduct = () => {
           console.log(res);
 
           if (res.error) toast.error(res.message);
-          else toast.success("Product added successfully");
+          else {
+            toast.success("Product added successfully");
+            ResetProduct();
+          }
         });
+      setDisable(false);
     }
-  }, [product.image]);
+  }, [update]);
 
   useEffect(() => {
     fetch(import.meta.env.VITE_EXPRESS_API + "/brands")
@@ -61,6 +87,7 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setUpdate(true);
         setProduct({
           ...product,
           name: product.name.trim(),
@@ -72,6 +99,7 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setDisable(true);
     console.log("submit");
     uploadImage();
   };
@@ -183,6 +211,7 @@ const AddProduct = () => {
           )}
 
           <FileInput
+            ref={inputFile}
             id="product-image"
             bordered
             required
@@ -204,7 +233,12 @@ const AddProduct = () => {
           }
         />
 
-        <Button type="submit" color="success" className="self-center w-32">
+        <Button
+          type="submit"
+          disabled={disabled}
+          color="success"
+          className="self-center w-32"
+        >
           Upload
         </Button>
       </form>

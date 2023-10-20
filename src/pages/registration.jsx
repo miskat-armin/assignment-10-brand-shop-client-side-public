@@ -1,13 +1,11 @@
-
+import { useState } from "react";
 import { Button, Card, Input } from "react-daisyui";
-import React, { useState } from "react";
-import { BiHide, BiShow } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
 import { toast } from "react-toastify";
+import { useAuth } from "../context/authContext";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
