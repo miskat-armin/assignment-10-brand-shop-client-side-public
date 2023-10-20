@@ -29,7 +29,6 @@ export default function Nav() {
   };
 
 
-
   // set theme state in localstorage on mount & also update localstorage on state change
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -111,15 +110,15 @@ export default function Nav() {
           <div className="dropdown dropdown-end cursor-pointer">
             <div tabIndex={0} className="avatar mx-4">
               <div className="w-10 rounded-full hover:ring ring-primary ring-offset-base-100 ring-offset-1">
-                <img alt="P" src={user.PhotoUrl} />
+                <img alt="P" src={user.photoURL} />
               </div>
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box w-52"
+              className="dropdown-content z-[1] menu p-0 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <p className="text-lg">{user.displayName}</p>
               </li>
               <li>
                 <Button
@@ -134,7 +133,7 @@ export default function Nav() {
             </ul>
           </div>
           :
-          <Button onClick={handleLoginClick} className="mr-4">Login</Button>
+          <Button variant="link" onClick={handleLoginClick} className="mr-4">Login</Button>
         }
       </div>
     </div>

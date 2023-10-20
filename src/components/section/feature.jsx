@@ -32,7 +32,7 @@ const Features = () => {
 
   return (
     <div className="flex flex-col lg:flex-row justify-around hero bg-base-300 p-10">
-      <div className="flex flex-col justify-center items-start max-w-xl mb-16 md:mb-0">
+      <div className="flex flex-col justify-center items-start max-w-xl mb-16 lg:mb-0">
         <h2 className="text-3xl md:text-5xl font-bold">ElectroPerks</h2>
         <h2 className="text-2xl font-semibold mb-4">Your Gateway to Exclusive Tech Benefits</h2>
         <p className="text-left text-lg mb-4">

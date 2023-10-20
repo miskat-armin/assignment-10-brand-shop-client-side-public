@@ -9,6 +9,7 @@ import AddProduct from "../pages/addProduct.jsx";
 import Signin from "../pages/signin.jsx";
 import Registration from "../pages/registration.jsx";
 import UpdateProduct from "../pages/updateProduct.jsx";
+import PrivateRoute from "../privateRotue/private.jsx";
 
 const CustomRouter = createBrowserRouter([
   {
@@ -19,36 +20,56 @@ const CustomRouter = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/reviews.json")
+        loader: () => fetch("/reviews.json"),
       },
       {
         path: "/my-cart",
-        element: <MyCart />
+        element: (
+          <PrivateRoute>
+            <MyCart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/:brand/:product",
-        element: <ProductDetails/>
+        element: (
+          <PrivateRoute>
+            <MyCart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/:brand/products",
-        element: <Products/>
+        element: (
+          <PrivateRoute>
+            <Products />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update/:brand/:product",
-        element: <UpdateProduct />
+        element: (
+          <PrivateRoute>
+            <UpdateProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-product",
-        element: <AddProduct />
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
       },
       {
-        path:"/login",
-        element: <Signin />
+        path: "/login",
+        element: <Signin />,
       },
       {
-        path:"/registration",
-        element: <Registration />
-      }
+        path: "/registration",
+        element: <Registration />,
+      },
     ],
   },
 ]);
