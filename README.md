@@ -1,5 +1,7 @@
 # Tech Deals Website
 
+## [Live link](https://assignment-10-brand-shop-ca62a.web.app/)
+
 Welcome to our Tech Deals Website! This platform offers an amazing shopping experience for tech enthusiasts. Here are the key features that make this website stand out:
 
 ## Features
