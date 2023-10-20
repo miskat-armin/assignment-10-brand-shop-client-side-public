@@ -39,7 +39,7 @@ export default function Nav() {
   }, [theme]);
 
   return (
-    <div className="navbar p-0 bg-white dark:bg-base-200 z-10 sticky top-0 ">
+    <div className="navbar shadow-lg p-0 bg-white dark:bg-base-200 z-10 sticky top-0 ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

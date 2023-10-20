@@ -23,7 +23,8 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center gap-4">
       <Banner handleBannerBtnClick={handleBannerBtnClick}/>
-      <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
+      <p className="text-3xl md:text-5xl font-bold font-serif mt-10">Discover Brands You'll Love</p>
+      <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10 mb-20">
         {brands.length > 0 &&
           brands.map((brand, idx) => {
             return <BrandCard key={idx} brand = {brand}/>;
@@ -31,11 +32,11 @@ const Home = () => {
       </div>
       <p className="text-3xl md:text-5xl font-bold font-serif">Customer's reviews</p>
       <p className="text-xl md:text-2xl font-light text-center">What our customers are saying about us</p>
-      <div className="flex flex-col gap-4 mt-10">
+      <div className="flex flex-col gap-4 mt-10 mb-10">
           {
-            reviews.map((review) => {
+            reviews.map((review, idx) => {
               return(
-                <ReviewCard review = {review} />
+                <ReviewCard key={idx} review = {review} />
               )
             })
           }

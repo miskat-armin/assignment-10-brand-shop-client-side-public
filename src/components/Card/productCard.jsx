@@ -14,9 +14,9 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="card card-compact max-w-xs xl:max-w-sm bg-base-100 shadow-xl hover:scale-105 transform transition duration-300 ">
+    <div className="card card-compact w-72 xl:w-96 bg-base-100 shadow-xl hover:scale-105 transform transition duration-300 ">
       <figure>
-        <img src={product.image} alt="brands" className="h-48" />
+        <img src={product.image} alt="brands" className="h-48 object-contain" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-3xl">{product.name}</h2>

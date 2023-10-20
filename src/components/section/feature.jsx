@@ -22,10 +22,10 @@ const cardData = [
 
 const Features = () => {
   const renderedCards = cardData.map((card, index) => (
-    <Card compact key={index} className="p-4 bg-indigo-300 shadow-xl hover:scale-105 transform transition duration-300">
-      <Card.Title className="dark:text-black">{card.title}</Card.Title>
+    <Card compact key={index} className="p-4 shadow-xl hover:scale-105 transform transition duration-300 bg-gray-100 dark:bg-slate-800 dark:text-neutral-content">
+      <Card.Title>{card.title}</Card.Title>
       <Card.Body>
-        <p className="dark:text-black">{card.description}</p>
+        <p>{card.description}</p>
       </Card.Body>
     </Card>
   ));

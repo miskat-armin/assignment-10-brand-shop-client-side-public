@@ -16,6 +16,8 @@ const ProductDetails = () => {
     const controller = new AbortController();
     const signal = controller.signal;
 
+    window.scrollTo(0, 0);
+
     fetch(
       import.meta.env.VITE_EXPRESS_API +
         `/products/${params.brand}/${params.product}`,
@@ -35,13 +37,13 @@ const ProductDetails = () => {
     };
   }, [params.brand, params.product]);
 
-  console.log(product)
+  console.log(product);
 
   const handleAddToCart = () => {
     fetch(import.meta.env.VITE_EXPRESS_API + "/carts/addToCart", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         ...product,
@@ -64,14 +66,16 @@ const ProductDetails = () => {
     );
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-center flex-row-reverse items-center">
-        <img src={product?.image} alt="image" className="w-auto h-52" />
+    <div className="flex flex-col w-full justify-center items-center my-10">
+      <div className="flex justify-center flex-col md:flex-row items-center">
+        <img src={product?.image} alt="image" className="h-96 w-auto object-contain md:max-w-[60%]" />
 
         <div className="flex flex-col m-10">
           <div className="flex flex-col mb-10">
-            <p>{product.name}</p>
-            <p>{product.price}</p>
+            <p className="text-3xl lg:text-5xl font-bold font-serif">
+              {product.name}
+            </p>
+            <p className=" md:text-lg font-thin text-sm">${product.price}</p>
             <Rating value={product.rating}>
               <Rating.Item name="rating-1" className="mask mask-star" />
               <Rating.Item name="rating-1" className="mask mask-star" />
@@ -80,14 +84,36 @@ const ProductDetails = () => {
               <Rating.Item name="rating-1" className="mask mask-star" />
             </Rating>
           </div>
-          <Button className="mt-auto" onClick={handleAddToCart}>
+          <Button
+            className="mt-auto w-32"
+            color="success"
+            onClick={handleAddToCart}
+          >
             Add to cart
           </Button>
         </div>
       </div>
-
-      <p>{product.type}</p>
-      <p>{product.description}</p>
+      <div>
+        <h2 className="text-3xl font-bold my-10">Additional Details</h2>
+        <div className="border-2 w-72 md:w-96" />
+        <div className="flex my-4 min-h-10 w-72 md:w-96 justify-between">
+          <p className="text-xl font-semibold text-red-500 font-sans">Type</p>
+          <p className="text-lg">{product.type}</p>
+        </div>
+        <div className="border-2 w-72 md:w-96" />
+        <div className="flex my-4 min-h-10 w-72 md:w-96 justify-between">
+          <p className="text-xl font-semibold text-red-500 font-sans">Brand</p>
+          <p className="text-lg">{product.brand_name}</p>
+        </div>
+        <div className="border-2 w-72 md:w-96" />
+        <div className="flex my-4 min-h-10 w-72 md:w-96 justify-between">
+          <p className="text-xl font-semibold text-red-500 font-sans">
+            Description
+          </p>
+          <p className="text-lg">{product.description}</p>
+        </div>
+        <div className="border-2 w-72 md:w-96" />
+      </div>
     </div>
   );
 };
