@@ -3,7 +3,7 @@ import { Avatar } from "react-daisyui";
 
 const ReviewCard = ({ review }) => {
   return (
-    <div className="card card-compact max-w-5xl lg:card-side shadow-xl mx-10 dark:bg-neutral dark:text-neutral-content">
+    <div className="card card-compact max-w-5xl lg:card-side shadow-xl dark:bg-neutral dark:text-neutral-content">
       <div className="card-body">
         <div className="flex">
           <Avatar
