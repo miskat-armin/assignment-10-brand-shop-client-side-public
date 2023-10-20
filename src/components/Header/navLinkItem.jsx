@@ -10,7 +10,7 @@ const NavLinkItem = ({ to, label }) => {
         isPending
           ? "pending"
           : isActive
-          ? "text-gray-800 hover:text-gray-500 underline font-extrabold"
+          ? "text-gray-800 dark:text-white hover:text-gray-500 hover:dark:text-text-gray-100 underline font-extrabold"
           : ""
       }
     >

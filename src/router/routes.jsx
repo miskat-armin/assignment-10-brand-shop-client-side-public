@@ -18,7 +18,8 @@ const CustomRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch("/reviews.json")
       },
       {
         path: "/my-cart",
@@ -41,7 +42,7 @@ const CustomRouter = createBrowserRouter([
         element: <AddProduct />
       },
       {
-        path:"/signin",
+        path:"/login",
         element: <Signin />
       },
       {

@@ -10,6 +10,8 @@ const Products = () => {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
+    
+    window.scrollTo(0, 0)
 
     fetch(import.meta.env.VITE_EXPRESS_API + `/products/${params?.brand}`, {
       signal: signal,

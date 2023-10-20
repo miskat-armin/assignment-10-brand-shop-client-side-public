@@ -9,19 +9,17 @@ const BrandCard = ({ brand }) => {
   }
 
   return (
-    <div className="card max-w-xs xl:max-w-sm bg-base-100 shadow-xl hover:scale-105 transform transition duration-300 ">
+    <div onClick={handleCardClick} className="card card-compact max-w-xs shadow-xl hover:scale-105 transform transition duration-300 bg-slate-50 dark:bg-slate-800 cursor-pointer">
       <figure>
         <img
           src={brand.brand_image}
           alt="Shoes"
-          className="w-full h-48"
+          draggable={false}
+          className="w-full h-48 object-contain"
         />
       </figure>
-      <div className="card-body">
-        <h2 className="card-title">{brand.brand_name}</h2>
-        <div className="card-actions justify-start">
-          <button onClick={handleCardClick} className="btn btn-primary">See products</button>
-        </div>
+      <div className="card-body flex items-center">
+        <h2 className="card-title text-2xl">{brand.brand_name}</h2>
       </div>
     </div>
   );
