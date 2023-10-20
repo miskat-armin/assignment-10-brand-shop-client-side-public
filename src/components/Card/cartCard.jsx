@@ -1,7 +1,20 @@
 import React from "react";
-import { Rating } from "react-daisyui";
+import { Button, Rating } from "react-daisyui";
+import { toast } from "react-toastify";
 
 const CartCard = ({cartItem}) => {
+
+
+  const handleDelete = () => {
+    fetch(import.meta.env.VITE_EXPRESS_API + `/carts/delete/${cartItem._id}`,{
+      method:"Delete"
+    })
+    .then(res => res.json())
+    .then(data => {
+      toast.success("Deleted successfully")
+    })
+    .catch(e => console.log(e))
+  }
 
   return (
     <div className="card card-compact w-72 xl:w-96 bg-base-100 shadow-xl hover:scale-105 transform transition duration-300 ">
@@ -25,6 +38,10 @@ const CartCard = ({cartItem}) => {
         <p className="text-lg font-semibold text-right">
           Type: {cartItem.type}
         </p>
+      </div>
+      <div className="card-actions justify-end">
+        <Button onClick={handleDelete} className="bg-red-600 text-white">Delete</Button>
+
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Rating } from "react-daisyui";
-import { useLocation, useParams } from "react-router-dom";
-import { useAuth } from "../context/authContext";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAuth } from "../context/authContext";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -57,6 +57,8 @@ const ProductDetails = () => {
         console.log(data);
       });
   };
+
+  console.log(params.product)
 
   if (loading)
     return (

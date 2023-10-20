@@ -28,6 +28,8 @@ export default function Nav() {
     }
   };
 
+  console.log(user)
+
 
   // set theme state in localstorage on mount & also update localstorage on state change
   useEffect(() => {
@@ -118,7 +120,7 @@ export default function Nav() {
               className="dropdown-content z-[1] menu p-0 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <p className="text-lg">{user.displayName}</p>
+                <p className="text-lg">{user.displayName || user.email}</p>
               </li>
               <li>
                 <Button

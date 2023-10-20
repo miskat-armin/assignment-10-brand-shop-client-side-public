@@ -51,13 +51,13 @@ const Registration = () => {
       return;
     }
 
-    if (/[A-Z]/.test(password)) {
-      toast.error("Password must not contain uppercase letters");
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain uppercase letters");
       return;
     }
 
-    if (/[^a-zA-Z0-9]/.test(password)) {
-      toast.error("Password must not contain special characters");
+    if (!/[^a-zA-Z0-9]/.test(password)) {
+      toast.error("Password must contain special characters");
       return;
     }
 
