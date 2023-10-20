@@ -7,9 +7,10 @@ import {
   Select,
   Textarea,
 } from "react-daisyui";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const AddProduct = () => {
+const UpdateProduct = () => {
   const [product, setProduct] = useState({
     name: "",
     image: "",
@@ -20,37 +21,94 @@ const AddProduct = () => {
     rating: 0,
   });
 
+  const params = useParams();
+
   const [brands, setBrands] = useState([]);
   const [img, setImg] = useState(null);
-
-  useEffect(() => {
-    if (
-      product.image !== "" &&
-      product.image !== null &&
-      product.image !== undefined
-    ) {
-      fetch(import.meta.env.VITE_EXPRESS_API + "/products/add_product", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(product),
-      })
-        .then((data) => data.json())
-        .then((res) => {
-          console.log(res);
-
-          if (res.error) toast.error(res.message);
-          else toast.success("Product added successfully");
-        });
-    }
-  }, [product.image]);
+  const [loading, setLoading] = useState(true);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     fetch(import.meta.env.VITE_EXPRESS_API + "/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data));
+
+    fetch(import.meta.env.VITE_EXPRESS_API + "/brands")
+      .then((res) => res.json())
+      .then((data) => setBrands(data));
   }, []);
 
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetch(
+      import.meta.env.VITE_EXPRESS_API +
+        `/products/${params.brand}/${params.product}`,
+      {
+        method: "GET",
+        signal: signal,
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+        console.log(data);
+        setProduct(data);
+      })
+      .catch(e => {
+        console.log(e)
+      })
+
+    return () => {
+      controller.abort();
+    };
+  }, [params.brand, params.product]);
+
+  useEffect(() => {
+    if (
+      product.image !== "" &&
+      product.image !== null &&
+      product.image !== undefined &&
+      update
+    ) {
+      const controller = new AbortController();
+      const signal = controller.signal;
+
+      fetch(
+        import.meta.env.VITE_EXPRESS_API +
+          `/products/update/${product.brand_name}/${product.name}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({...product, name:product.name.trim(), price: product.price.trim()}),
+          signal: signal,
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.error) toast.error(data.message);
+          else toast.success("Product updated successfully");
+          setUpdate(false);
+        })
+        .catch((e) => {
+          console.log(e);
+          setUpdate(false);
+        });
+
+      return () => {
+        setUpdate(false);
+        controller.abort();
+      };
+    }
+  }, [update]);
+
   const uploadImage = () => {
+    if (img === null) {
+      setUpdate(true);
+      return;
+    }
     let form = new FormData();
     form.set("key", import.meta.env.VITE_IMGBB_KEY);
     form.append("image", img);
@@ -62,6 +120,7 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         setProduct({ ...product, name:product.name.trim(), price:product.price.trim(), image: data?.data.url });
+        setUpdate(true);
       });
   };
 
@@ -70,6 +129,13 @@ const AddProduct = () => {
     console.log("submit");
     uploadImage();
   };
+
+  if (loading)
+    return (
+      <div className="w-screen h-screen flex justify-center items-center">
+        <span className="loading loading-spinner text-accent"></span>
+      </div>
+    );
 
   return (
     <div>
@@ -144,21 +210,18 @@ const AddProduct = () => {
           }
         />
 
-        {img && (
+        {img ? (
           <img
             src={URL.createObjectURL(img)}
             alt="img"
             height={300}
             width={200}
           />
+        ) : (
+          <img src={product.image} alt="img" height={300} width={200} />
         )}
 
-        <FileInput
-          bordered
-          required
-          placeholder="Choose an image"
-          onChange={(e) => setImg(e.target.files[0])}
-        />
+        <FileInput bordered onChange={(e) => setImg(e.target.files[0])} />
 
         <Rating
           value={product.rating}
@@ -179,4 +242,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

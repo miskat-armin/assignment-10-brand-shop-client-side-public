@@ -35,6 +35,8 @@ const ProductDetails = () => {
     };
   }, [params.brand, params.product]);
 
+  console.log(product)
+
   const handleAddToCart = () => {
     fetch(import.meta.env.VITE_EXPRESS_API + "/carts/addToCart", {
       method: "POST",

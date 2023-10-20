@@ -9,6 +9,10 @@ const ProductCard = ({ product }) => {
     navigate(`/${product.brand_name}/${product.name}`)
   };
 
+  const handleUpdateClick = () => {
+    navigate(`/update/${product.brand_name}/${product.name}`)
+  }
+
   return (
     <div className="card max-w-xs xl:max-w-sm bg-base-100 shadow-xl hover:scale-105 transform transition duration-300 ">
       <figure>
@@ -18,7 +22,7 @@ const ProductCard = ({ product }) => {
         <h2 className="card-title">{product.name}</h2>
 
         <div className="card-actions justify-between">
-          <Button className="btn-accent">Update</Button>
+          <Button onClick={handleUpdateClick} className="btn-accent">Update</Button>
           <button onClick={handleCardClick} className="btn btn-primary">
             More details
           </button>

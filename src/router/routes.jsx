@@ -8,6 +8,7 @@ import Products from "../pages/products.jsx";
 import AddProduct from "../pages/addProduct.jsx";
 import Signin from "../pages/signin.jsx";
 import Registration from "../pages/registration.jsx";
+import UpdateProduct from "../pages/updateProduct.jsx";
 
 const CustomRouter = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const CustomRouter = createBrowserRouter([
       {
         path: "/:brand/products",
         element: <Products/>
+      },
+      {
+        path: "/update/:brand/:product",
+        element: <UpdateProduct />
       },
       {
         path: "/add-product",
