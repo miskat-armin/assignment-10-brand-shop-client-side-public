@@ -41,9 +41,7 @@ const CustomRouter = createBrowserRouter([
       {
         path: "/:brand/products",
         element: (
-          <PrivateRoute>
             <Products />
-          </PrivateRoute>
         ),
       },
       {

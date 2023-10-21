@@ -103,7 +103,7 @@ const Registration = () => {
                 onChange={handlePasswordChange}
                 className="w-full py-2 rounded-md border-gray-300 focus:outline-none focus:ring focus:ring-indigo-500"
               />
-            
+
             </div>
 
             <Button
@@ -131,10 +131,10 @@ const Registration = () => {
           <div className="w-full md:w-1/2 px-4 flex flex-col items-center mb-10 md:mb-0 mt-10 md:mt-0">
             <img src="/Signup.svg" alt="signin" className="lg:w-[90%]" />
             <Link
-              to={"/signin"}
+              to={"/login"}
               className="hidden md:block mt-5 text-blue-500 underline"
             >
-              Already logged in?
+              Already have an account?
             </Link>
           </div>
         </div>
