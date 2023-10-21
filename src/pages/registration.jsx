@@ -122,10 +122,10 @@ const Registration = () => {
             />
 
             <Link
-              to={"/signin"}
+              to={"/login"}
               className="md:hidden self-center text-blue-500 underline"
             >
-              Already logged in?
+              Already have an account?
             </Link>
           </form>
           <div className="w-full md:w-1/2 px-4 flex flex-col items-center mb-10 md:mb-0 mt-10 md:mt-0">
